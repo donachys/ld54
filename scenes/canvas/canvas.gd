@@ -15,6 +15,7 @@ var color_select_rect := preload("color_select_rect.tscn")
 
 @onready var u_downsize3 := parent_node.get_node("u_downsize3")
 @onready var global_vars := get_node("/root/GlobalVariables")
+@onready var scratch_audio := parent_node.get_node("scratch")
 
 var image := Image.new()
 var u_image_downsize := Image.new()
@@ -193,6 +194,7 @@ func _gui_input(event):
 						image.fill_rect(_pos_to_rect(event.position, _scale), global_vars.current_color)
 						texture.update(image)
 						global_vars.last_u_image = image.duplicate()
+						scratch_audio.play()
 				else:
 					drawing = false
 		if event is InputEventMouseMotion and event.button_mask == MOUSE_BUTTON_LEFT and drawing:

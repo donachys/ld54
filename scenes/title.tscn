@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cpso6r6h7l53t"]
+[gd_scene load_steps=13 format=3 uid="uid://cpso6r6h7l53t"]
 
 [ext_resource type="Script" path="res://scenes/scene_transition_btn.gd" id="1_68kry"]
 [ext_resource type="Script" path="res://scenes/title.gd" id="1_p0k7j"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c2gjmgk62mvvh" path="res://assets/title/in.png" id="4_4l0kh"]
 [ext_resource type="Texture2D" uid="uid://dbyg7jpdo6llg" path="res://assets/title/title_proportion.png" id="5_hg3yj"]
 [ext_resource type="Theme" uid="uid://bd8xh43twe2b8" path="res://assets/theme000.tres" id="6_v14ko"]
+[ext_resource type="AudioStream" uid="uid://uxq0p5my7ix3" path="res://assets/audio/tune2.ogg" id="8_4ebcp"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_cl08g"]
 diffuse_texture = ExtResource("2_udx3b")
@@ -80,3 +81,7 @@ theme = ExtResource("6_v14ko")
 text = "Play Intro"
 script = ExtResource("1_68kry")
 next_scene = "res://scenes/intro.tscn"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_4ebcp")
+autoplay = true

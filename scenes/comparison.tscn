@@ -4,7 +4,6 @@
 [ext_resource type="Script" path="res://scenes/scene_transition_btn.gd" id="1_fxhd3"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xlv00"]
-load_path = "res://.godot/imported/Gold-Frame-2-413x524.png-fc26ec0a18f03ed1c546e04b1616aa67.ctex"
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_p7j1o"]
 diffuse_texture = SubResource("CompressedTexture2D_xlv00")

@@ -61,6 +61,7 @@ offset_bottom = 533.0
 color = Color(0.521569, 0.176471, 0.176471, 0.427451)
 
 [node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
 offset_left = -12.0
 offset_top = 75.0
 offset_right = 944.0

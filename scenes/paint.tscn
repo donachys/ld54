@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://c3dxdqlh345g8"]
+[gd_scene load_steps=36 format=3 uid="uid://c3dxdqlh345g8"]
 
 [ext_resource type="Script" path="res://scenes/canvas/canvas.gd" id="1_mxuud"]
 [ext_resource type="Texture2D" uid="uid://dw166dilkhds5" path="res://assets/fineart/0001_240x360.png" id="2_7u7i2"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://dc7abemrbj5x" path="res://assets/fineart/0015_240x360.png" id="16_88bab"]
 [ext_resource type="Texture2D" uid="uid://boec1yxgofebp" path="res://assets/fineart/0016_240x360.png" id="17_fq8v1"]
 [ext_resource type="Texture2D" uid="uid://dsva0w0203xdf" path="res://assets/fineart/0017_240x360.png" id="18_lmxkb"]
+[ext_resource type="AudioStream" uid="uid://bkk763qy71wwl" path="res://assets/audio/scratch.ogg" id="25_gxxql"]
 
 [sub_resource type="Gradient" id="Gradient_w3uv5"]
 interpolation_mode = 2
@@ -42,7 +43,6 @@ noise = SubResource("FastNoiseLite_1wnea")
 [sub_resource type="CanvasTexture" id="CanvasTexture_ssnn7"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xlv00"]
-load_path = "res://.godot/imported/Gold-Frame-2-413x524.png-fc26ec0a18f03ed1c546e04b1616aa67.ctex"
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_xwa7s"]
 diffuse_texture = SubResource("CompressedTexture2D_xlv00")
@@ -331,5 +331,8 @@ offset_right = 420.0
 offset_bottom = 42.0
 theme_override_font_sizes/font_size = 24
 text = "60 sec"
+
+[node name="scratch" type="AudioStreamPlayer2D" parent="Control"]
+stream = ExtResource("25_gxxql")
 
 [connection signal="pressed" from="Control/Button2" to="Control/Canvas" method="_done_pressed"]
