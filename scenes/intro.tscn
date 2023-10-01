@@ -1,0 +1,181 @@
+[gd_scene load_steps=27 format=3 uid="uid://nnyo5vg7srx5"]
+
+[ext_resource type="Script" path="res://scenes/scene_transition_btn.gd" id="1_fej6n"]
+[ext_resource type="Texture2D" uid="uid://bopdevjlo0i58" path="res://assets/brick-normal-948x533.png" id="1_rwuca"]
+[ext_resource type="Texture2D" uid="uid://cotxjfwe4dahf" path="res://assets/gallery-sign.png" id="2_mfedd"]
+[ext_resource type="Script" path="res://scenes/intro_layout.gd" id="3_rr757"]
+[ext_resource type="Texture2D" uid="uid://bgan2pk8c0obt" path="res://assets/pointlight000.png" id="3_vi4pq"]
+[ext_resource type="Texture2D" uid="uid://cld01bvio8abc" path="res://assets/premade/0000_48x72.png" id="4_wr42f"]
+[ext_resource type="Texture2D" uid="uid://b2rjdlysct6so" path="res://assets/premade/0001_48x72.png" id="5_ehql6"]
+[ext_resource type="Texture2D" uid="uid://byjs6m0pnuekd" path="res://assets/premade/0002_48x72.png" id="6_m03oa"]
+[ext_resource type="Texture2D" uid="uid://prps7cy5b141" path="res://assets/premade/0003_48x72.png" id="7_cdkjf"]
+[ext_resource type="Texture2D" uid="uid://bsjkwajij0m1a" path="res://assets/premade/0004_48x72.png" id="8_v2ki1"]
+[ext_resource type="Texture2D" uid="uid://dndwwdlornjno" path="res://assets/premade/0005_48x72.png" id="9_k7dm5"]
+[ext_resource type="Texture2D" uid="uid://o3njsjgptjc3" path="res://assets/premade/0006_48x72.png" id="10_b4xhe"]
+[ext_resource type="Texture2D" uid="uid://pf8buee884pv" path="res://assets/premade/0007_48x72.png" id="11_0hfay"]
+[ext_resource type="Texture2D" uid="uid://dvv8fj705ym64" path="res://assets/premade/0008_48x72.png" id="12_01ieb"]
+[ext_resource type="Texture2D" uid="uid://ll87a0iy6tku" path="res://assets/premade/0009_48x72.png" id="13_kqenf"]
+[ext_resource type="Texture2D" uid="uid://c12sgahmmpuai" path="res://assets/premade/0010_48x72.png" id="14_n3t2u"]
+[ext_resource type="Texture2D" uid="uid://oudnegajree" path="res://assets/premade/0011_48x72.png" id="15_8jfcv"]
+[ext_resource type="Texture2D" uid="uid://bd73km10sjo2y" path="res://assets/premade/0012_48x72.png" id="16_5pqt4"]
+[ext_resource type="Texture2D" uid="uid://cfsjx0nlu7yao" path="res://assets/premade/0013_48x72.png" id="17_2rcbh"]
+[ext_resource type="Texture2D" uid="uid://04sukx17nlbo" path="res://assets/tiny.png" id="20_aqb4c"]
+[ext_resource type="Theme" uid="uid://bd8xh43twe2b8" path="res://assets/theme000.tres" id="21_4a245"]
+[ext_resource type="FontFile" uid="uid://s70b8nr5ee53" path="res://assets/fonts/SFPixelate.ttf" id="22_4vmg6"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_6e4w3"]
+normal_texture = ExtResource("1_rwuca")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_2s8cs"]
+diffuse_texture = ExtResource("2_mfedd")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_04uxk"]
+diffuse_texture = ExtResource("20_aqb4c")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ciybp"]
+bg_color = Color(0.141176, 0.141176, 0.141176, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 948.0
+offset_bottom = 533.0
+texture = SubResource("CanvasTexture_6e4w3")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(948, 533)
+layout_mode = 0
+offset_right = 948.0
+offset_bottom = 533.0
+color = Color(0.521569, 0.176471, 0.176471, 0.427451)
+
+[node name="GridContainer" type="GridContainer" parent="."]
+offset_left = -12.0
+offset_top = 75.0
+offset_right = 944.0
+offset_bottom = 430.0
+columns = 6
+script = ExtResource("3_rr757")
+pm_images = Array[CompressedTexture2D]([ExtResource("4_wr42f"), ExtResource("5_ehql6"), ExtResource("6_m03oa"), ExtResource("7_cdkjf"), ExtResource("8_v2ki1"), ExtResource("9_k7dm5"), ExtResource("10_b4xhe"), ExtResource("11_0hfay"), ExtResource("12_01ieb"), ExtResource("13_kqenf"), ExtResource("14_n3t2u"), ExtResource("15_8jfcv"), ExtResource("16_5pqt4"), ExtResource("17_2rcbh")])
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 947.0
+offset_bottom = 533.0
+color = Color(0.486275, 0.486275, 0.486275, 0.705882)
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 7.0
+offset_right = 900.0
+offset_bottom = 67.0
+texture = SubResource("CanvasTexture_2s8cs")
+
+[node name="Label" type="Label" parent="TextureRect2"]
+visible = false
+layout_mode = 0
+offset_right = 288.0
+offset_bottom = 52.0
+text = "Diminishing Assets
+Fine Art"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.239216, 0.239216, 0.239216, 1)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(0.533333, 0.533333, 0.533333, 1)
+range_item_cull_mask = 0
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(21, 290.5)
+energy = 0.25
+texture = ExtResource("3_vi4pq")
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(349, 291.5)
+energy = 0.25
+texture = ExtResource("3_vi4pq")
+
+[node name="PointLight2D3" type="PointLight2D" parent="."]
+position = Vector2(651, 290.5)
+energy = 0.25
+texture = ExtResource("3_vi4pq")
+
+[node name="PointLight2D4" type="PointLight2D" parent="."]
+position = Vector2(931, 286.5)
+energy = 0.25
+texture = ExtResource("3_vi4pq")
+
+[node name="PointLight2D5" type="PointLight2D" parent="."]
+position = Vector2(198, 34)
+rotation = -1.57246
+scale = Vector2(0.120001, 1)
+texture = ExtResource("3_vi4pq")
+
+[node name="PointLight2D6" type="PointLight2D" parent="."]
+position = Vector2(773, 37)
+rotation = 1.56718
+scale = Vector2(0.120001, 1)
+texture = ExtResource("3_vi4pq")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 777.0
+offset_top = 463.0
+offset_right = 891.0
+offset_bottom = 494.0
+text = "Start Painting"
+script = ExtResource("1_fej6n")
+next_scene = "res://scenes/paint.tscn"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+light_mask = 4
+position = Vector2(151, 389)
+texture = SubResource("CanvasTexture_04uxk")
+
+[node name="Panel" type="Panel" parent="."]
+light_mask = 4
+layout_mode = 0
+offset_left = 317.0
+offset_top = 242.0
+offset_right = 867.0
+offset_bottom = 452.0
+theme = ExtResource("21_4a245")
+theme_override_styles/panel = SubResource("StyleBoxFlat_ciybp")
+
+[node name="TextEdit" type="TextEdit" parent="Panel"]
+custom_minimum_size = Vector2(550, 210)
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+size_flags_vertical = 3
+theme = ExtResource("21_4a245")
+theme_override_colors/font_readonly_color = Color(1, 0.956863, 0.360784, 1)
+theme_override_fonts/font = ExtResource("22_4vmg6")
+theme_override_font_sizes/font_size = 18
+text = "\"Hey there, talented artist! I've got a golden opportunity for you. I own this cozy stall on main street, but it's a bit cramped for those massive artworks. Tonight, there's this big event, and I need small paintings to dazzle the crowd. I'll handle the tricky bits, you just work your magic with the paint and canvas. I'll even toss some cash your way. Just use your \"artistic license\" with these old prints I have laying around. Time's a wastin', Whaddya think, partner?\""
+editable = false
+context_menu_enabled = false
+shortcut_keys_enabled = false
+drag_and_drop_selection_enabled = false
+wrap_mode = 1
+
+[node name="PointLight2D7" type="PointLight2D" parent="."]
+light_mask = 4
+position = Vector2(160, 287)
+range_item_cull_mask = 4
+texture = ExtResource("3_vi4pq")

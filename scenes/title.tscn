@@ -1,0 +1,82 @@
+[gd_scene load_steps=12 format=3 uid="uid://cpso6r6h7l53t"]
+
+[ext_resource type="Script" path="res://scenes/scene_transition_btn.gd" id="1_68kry"]
+[ext_resource type="Script" path="res://scenes/title.gd" id="1_p0k7j"]
+[ext_resource type="Texture2D" uid="uid://b7yxggmhi3jv7" path="res://assets/title/title_fill.png" id="2_udx3b"]
+[ext_resource type="Texture2D" uid="uid://cpp8ocfsl8jgq" path="res://assets/title/title_profits.png" id="3_co8v7"]
+[ext_resource type="Texture2D" uid="uid://c2gjmgk62mvvh" path="res://assets/title/in.png" id="4_4l0kh"]
+[ext_resource type="Texture2D" uid="uid://dbyg7jpdo6llg" path="res://assets/title/title_proportion.png" id="5_hg3yj"]
+[ext_resource type="Theme" uid="uid://bd8xh43twe2b8" path="res://assets/theme000.tres" id="6_v14ko"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_cl08g"]
+diffuse_texture = ExtResource("2_udx3b")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_wn0kp"]
+diffuse_texture = ExtResource("3_co8v7")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_4shll"]
+diffuse_texture = ExtResource("4_4l0kh")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_kbp2p"]
+diffuse_texture = ExtResource("5_hg3yj")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p0k7j")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 284.0
+offset_top = 141.0
+offset_right = 711.0
+offset_bottom = 167.0
+text = "Profits in Proportion"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Fill" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 948.0
+offset_bottom = 533.0
+texture = SubResource("CanvasTexture_cl08g")
+
+[node name="Profits" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 25.0
+offset_right = 677.0
+offset_bottom = 261.0
+texture = SubResource("CanvasTexture_wn0kp")
+
+[node name="In" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 451.0
+offset_top = 189.0
+offset_right = 553.0
+offset_bottom = 272.0
+texture = SubResource("CanvasTexture_4shll")
+
+[node name="Proportion" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 86.0
+offset_top = 271.0
+offset_right = 902.0
+offset_bottom = 485.0
+texture = SubResource("CanvasTexture_kbp2p")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 415.0
+offset_top = 464.0
+offset_right = 498.0
+offset_bottom = 495.0
+theme = ExtResource("6_v14ko")
+text = "Play Intro"
+script = ExtResource("1_68kry")
+next_scene = "res://scenes/intro.tscn"

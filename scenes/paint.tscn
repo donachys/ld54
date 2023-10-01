@@ -1,0 +1,335 @@
+[gd_scene load_steps=35 format=3 uid="uid://c3dxdqlh345g8"]
+
+[ext_resource type="Script" path="res://scenes/canvas/canvas.gd" id="1_mxuud"]
+[ext_resource type="Texture2D" uid="uid://dw166dilkhds5" path="res://assets/fineart/0001_240x360.png" id="2_7u7i2"]
+[ext_resource type="Texture2D" uid="uid://bg3s6n4ne4is0" path="res://assets/fineart/ml_240x360.png" id="2_uqkrg"]
+[ext_resource type="Texture2D" uid="uid://cytkjscdprn1i" path="res://assets/fineart/0002_240x360.png" id="3_4ncyq"]
+[ext_resource type="Script" path="res://scenes/scene_transition_btn.gd" id="3_dih1l"]
+[ext_resource type="Script" path="res://scenes/canvas/color_picker_container.gd" id="3_likem"]
+[ext_resource type="Texture2D" uid="uid://dub7fgb0ya8f8" path="res://assets/fineart/0003_240x360.png" id="4_6f24k"]
+[ext_resource type="Script" path="res://scenes/color_palette.gd" id="4_jpwib"]
+[ext_resource type="Texture2D" uid="uid://bkix2m7lm2bb" path="res://assets/fineart/0004_240x360.png" id="5_bbskx"]
+[ext_resource type="Script" path="res://scenes/canvas/current_color.gd" id="5_dn3g0"]
+[ext_resource type="PackedScene" uid="uid://byl7ju6dcvc23" path="res://scenes/canvas/color_select_rect.tscn" id="6_qe7ps"]
+[ext_resource type="Texture2D" uid="uid://b1ykerxs4hh46" path="res://assets/fineart/0005_240x360.png" id="6_qhwgt"]
+[ext_resource type="Texture2D" uid="uid://cx1yulsuqo8wf" path="res://assets/fineart/0006_240x360.png" id="7_1a1wo"]
+[ext_resource type="Texture2D" uid="uid://d1cnkbykl1uj6" path="res://assets/fineart/0007_240x360.png" id="8_drasj"]
+[ext_resource type="Texture2D" uid="uid://dhstawf0o6lm4" path="res://assets/fineart/0008_240x360.png" id="9_ik1pd"]
+[ext_resource type="Texture2D" uid="uid://b2kl4nlu6s26s" path="res://assets/fineart/0009_240x360.png" id="10_eg7sf"]
+[ext_resource type="Texture2D" uid="uid://bqdi1dw0gwbd7" path="res://assets/fineart/0010_240x360.png" id="11_iko01"]
+[ext_resource type="Texture2D" uid="uid://hdbf2h0da75u" path="res://assets/fineart/0011_240x360.png" id="12_sw0l5"]
+[ext_resource type="Texture2D" uid="uid://dtum8btqbg24q" path="res://assets/fineart/0012_240x360.png" id="13_1hadl"]
+[ext_resource type="Texture2D" uid="uid://c4elugagecfwq" path="res://assets/fineart/0013_240x360.png" id="14_wcv7a"]
+[ext_resource type="Texture2D" uid="uid://fvmkj45mv8de" path="res://assets/fineart/0014_240x360.png" id="15_r0ux4"]
+[ext_resource type="Texture2D" uid="uid://dc7abemrbj5x" path="res://assets/fineart/0015_240x360.png" id="16_88bab"]
+[ext_resource type="Texture2D" uid="uid://boec1yxgofebp" path="res://assets/fineart/0016_240x360.png" id="17_fq8v1"]
+[ext_resource type="Texture2D" uid="uid://dsva0w0203xdf" path="res://assets/fineart/0017_240x360.png" id="18_lmxkb"]
+
+[sub_resource type="Gradient" id="Gradient_w3uv5"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.754839, 1)
+colors = PackedColorArray(0.427451, 0.298039, 0.196078, 1, 0.543154, 0.364634, 0.182075, 1, 0.392157, 0.243137, 0.172549, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1wnea"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_732al"]
+width = 12
+height = 12
+generate_mipmaps = false
+color_ramp = SubResource("Gradient_w3uv5")
+noise = SubResource("FastNoiseLite_1wnea")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ssnn7"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xlv00"]
+load_path = "res://.godot/imported/Gold-Frame-2-413x524.png-fc26ec0a18f03ed1c546e04b1616aa67.ctex"
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_xwa7s"]
+diffuse_texture = SubResource("CompressedTexture2D_xlv00")
+
+[sub_resource type="ImageTexture" id="ImageTexture_cyn3l"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_ks4gb"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_1upap"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_r1r81"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 948.0
+offset_bottom = 533.0
+color = Color(0.282353, 0.282353, 0.282353, 1)
+
+[node name="Control" type="Control" parent="."]
+custom_minimum_size = Vector2(948, 533)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 948.0
+offset_bottom = 533.0
+
+[node name="ColorRect3" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_left = 464.0
+offset_top = 68.0
+offset_right = 744.0
+offset_bottom = 468.0
+color = Color(0.352941, 0.286275, 0.172549, 0)
+
+[node name="ColorRect" type="ColorRect" parent="Control/ColorRect3"]
+custom_minimum_size = Vector2(64, 88)
+layout_mode = 0
+offset_right = 280.0
+offset_bottom = 400.0
+color = Color(0, 0, 0, 1)
+
+[node name="Rect" type="TextureRect" parent="Control/ColorRect3/ColorRect"]
+custom_minimum_size = Vector2(274, 394)
+layout_mode = 2
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 277.0
+offset_bottom = 397.0
+texture = SubResource("NoiseTexture2D_732al")
+
+[node name="Canvas" type="TextureRect" parent="Control"]
+custom_minimum_size = Vector2(240, 360)
+layout_mode = 0
+offset_left = 484.0
+offset_top = 88.0
+offset_right = 724.0
+offset_bottom = 448.0
+texture = SubResource("CanvasTexture_ssnn7")
+script = ExtResource("1_mxuud")
+fa_images = Array[CompressedTexture2D]([ExtResource("2_7u7i2"), ExtResource("3_4ncyq"), ExtResource("4_6f24k"), ExtResource("5_bbskx"), ExtResource("6_qhwgt"), ExtResource("7_1a1wo"), ExtResource("8_drasj"), ExtResource("9_ik1pd"), ExtResource("10_eg7sf"), ExtResource("11_iko01"), ExtResource("12_sw0l5"), ExtResource("13_1hadl"), ExtResource("14_wcv7a"), ExtResource("15_r0ux4"), ExtResource("16_88bab"), ExtResource("17_fq8v1"), ExtResource("18_lmxkb")])
+
+[node name="ColorRect2" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 68.0
+offset_right = 352.0
+offset_bottom = 468.0
+color = Color(0.352941, 0.286275, 0.172549, 0)
+
+[node name="ColorRect" type="ColorRect" parent="Control/ColorRect2"]
+custom_minimum_size = Vector2(64, 88)
+layout_mode = 0
+offset_right = 280.0
+offset_bottom = 400.0
+color = Color(0, 0, 0, 1)
+
+[node name="Rect" type="TextureRect" parent="Control/ColorRect2/ColorRect"]
+custom_minimum_size = Vector2(274, 394)
+layout_mode = 2
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 277.0
+offset_bottom = 397.0
+texture = SubResource("NoiseTexture2D_732al")
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 6.0
+offset_top = 3.0
+offset_right = 419.0
+offset_bottom = 531.0
+texture = SubResource("CanvasTexture_xwa7s")
+
+[node name="FineArt" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 87.0
+offset_right = 333.0
+offset_bottom = 447.0
+texture = ExtResource("2_uqkrg")
+
+[node name="Button" type="Button" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 42.0
+offset_top = 29.0
+offset_right = 95.0
+offset_bottom = 60.0
+text = "check"
+
+[node name="Button2" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 886.0
+offset_top = 494.0
+offset_right = 939.0
+offset_bottom = 525.0
+text = "done"
+script = ExtResource("3_dih1l")
+next_scene = "res://scenes/comparison.tscn"
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 308.0
+offset_top = 482.0
+offset_right = 390.0
+offset_bottom = 513.0
+theme_override_font_sizes/font_size = 26
+text = "$0.00"
+
+[node name="ColorPickerContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = 811.0
+offset_top = 49.0
+offset_right = 875.0
+offset_bottom = 497.0
+script = ExtResource("3_likem")
+
+[node name="ColorRect7" parent="Control/ColorPickerContainer" instance=ExtResource("6_qe7ps")]
+visible = false
+layout_mode = 2
+
+[node name="ColorRect1" type="ColorRect" parent="Control/ColorPickerContainer"]
+visible = false
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+color = Color(0.333333, 0.333333, 0.333333, 1)
+script = ExtResource("4_jpwib")
+
+[node name="ColorRect5" type="ColorRect" parent="Control/ColorPickerContainer"]
+visible = false
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+color = Color(0.666667, 0.333333, 0.168627, 1)
+script = ExtResource("4_jpwib")
+
+[node name="ColorRect4" type="ColorRect" parent="Control/ColorPickerContainer"]
+visible = false
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+color = Color(0.501961, 0.333333, 0.168627, 1)
+script = ExtResource("4_jpwib")
+
+[node name="ColorRect2" type="ColorRect" parent="Control/ColorPickerContainer"]
+visible = false
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+color = Color(0.835294, 0.666667, 0.333333, 1)
+script = ExtResource("4_jpwib")
+
+[node name="ColorRect3" type="ColorRect" parent="Control/ColorPickerContainer"]
+visible = false
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+color = Color(0.835294, 0.835294, 0.501961, 1)
+script = ExtResource("4_jpwib")
+
+[node name="ColorRect6" type="ColorRect" parent="Control/ColorPickerContainer"]
+visible = false
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+color = Color(0.835294, 0.666667, 0.501961, 1)
+script = ExtResource("4_jpwib")
+
+[node name="ColorRect" type="ColorRect" parent="Control/ColorPickerContainer"]
+visible = false
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+color = Color(0.501961, 0.501961, 0.333333, 1)
+script = ExtResource("4_jpwib")
+
+[node name="ColorRect8" type="ColorRect" parent="Control/ColorPickerContainer"]
+visible = false
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+color = Color(0.333333, 0.501961, 0.333333, 1)
+script = ExtResource("4_jpwib")
+
+[node name="ColorRect9" type="ColorRect" parent="Control/ColorPickerContainer"]
+visible = false
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+color = Color(0.666667, 0.666667, 0.333333, 1)
+script = ExtResource("4_jpwib")
+
+[node name="ColorRect10" type="ColorRect" parent="Control/ColorPickerContainer"]
+visible = false
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+color = Color(0.333333, 0.168627, 0.168627, 1)
+script = ExtResource("4_jpwib")
+
+[node name="CurrentColor" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_left = 891.0
+offset_top = 407.0
+offset_right = 931.0
+offset_bottom = 447.0
+color = Color(0.167969, 0.167969, 0.167969, 1)
+script = ExtResource("5_dn3g0")
+
+[node name="fa_downsize" type="TextureRect" parent="Control"]
+visible = false
+custom_minimum_size = Vector2(16, 24)
+layout_mode = 0
+offset_left = 138.0
+offset_top = 119.0
+offset_right = 154.0
+offset_bottom = 143.0
+texture = SubResource("ImageTexture_cyn3l")
+
+[node name="fa_downsize2" type="TextureRect" parent="Control"]
+visible = false
+custom_minimum_size = Vector2(32, 48)
+layout_mode = 0
+offset_left = 125.0
+offset_top = 167.0
+offset_right = 157.0
+offset_bottom = 215.0
+texture = SubResource("ImageTexture_ks4gb")
+
+[node name="fa_downsize3" type="TextureRect" parent="Control"]
+visible = false
+custom_minimum_size = Vector2(64, 96)
+layout_mode = 0
+offset_left = 138.0
+offset_top = 352.0
+offset_right = 202.0
+offset_bottom = 448.0
+texture = SubResource("ImageTexture_ks4gb")
+
+[node name="u_downsize" type="TextureRect" parent="Control"]
+visible = false
+custom_minimum_size = Vector2(16, 24)
+layout_mode = 0
+offset_left = 192.0
+offset_top = 123.0
+offset_right = 208.0
+offset_bottom = 147.0
+texture = SubResource("ImageTexture_1upap")
+
+[node name="u_downsize2" type="TextureRect" parent="Control"]
+custom_minimum_size = Vector2(32, 48)
+layout_mode = 0
+offset_left = 188.0
+offset_top = 167.0
+offset_right = 220.0
+offset_bottom = 215.0
+texture = SubResource("ImageTexture_r1r81")
+
+[node name="u_downsize3" type="TextureRect" parent="Control"]
+visible = false
+custom_minimum_size = Vector2(64, 96)
+layout_mode = 0
+offset_left = 139.0
+offset_top = 242.0
+offset_right = 203.0
+offset_bottom = 338.0
+texture = SubResource("ImageTexture_r1r81")
+
+[node name="Timer" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 321.0
+offset_top = 14.0
+offset_right = 420.0
+offset_bottom = 42.0
+theme_override_font_sizes/font_size = 24
+text = "60 sec"
+
+[connection signal="pressed" from="Control/Button2" to="Control/Canvas" method="_done_pressed"]

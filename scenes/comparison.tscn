@@ -1,0 +1,95 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6pqe4gs6nplt"]
+
+[ext_resource type="Script" path="res://scenes/comparison.gd" id="1_661wr"]
+[ext_resource type="Script" path="res://scenes/scene_transition_btn.gd" id="1_fxhd3"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xlv00"]
+load_path = "res://.godot/imported/Gold-Frame-2-413x524.png-fc26ec0a18f03ed1c546e04b1616aa67.ctex"
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_p7j1o"]
+diffuse_texture = SubResource("CompressedTexture2D_xlv00")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_661wr")
+
+[node name="OriginalsHBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(850, 450)
+layout_mode = 0
+offset_left = 60.0
+offset_top = 44.0
+offset_right = 910.0
+offset_bottom = 494.0
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="OriginalsHBoxContainer"]
+visible = false
+layout_mode = 2
+texture = SubResource("CanvasTexture_p7j1o")
+
+[node name="Original" type="TextureRect" parent="OriginalsHBoxContainer"]
+custom_minimum_size = Vector2(32, 48)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="User" type="TextureRect" parent="OriginalsHBoxContainer"]
+custom_minimum_size = Vector2(32, 48)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="DifferenceHBoxContainer" type="HBoxContainer" parent="."]
+visible = false
+custom_minimum_size = Vector2(850, 450)
+layout_mode = 0
+offset_left = 60.0
+offset_top = 44.0
+offset_right = 910.0
+offset_bottom = 494.0
+alignment = 1
+
+[node name="ScaledOriginal" type="TextureRect" parent="DifferenceHBoxContainer"]
+custom_minimum_size = Vector2(32, 48)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="Diff" type="TextureRect" parent="DifferenceHBoxContainer"]
+custom_minimum_size = Vector2(32, 48)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+offset_left = 845.0
+offset_top = 493.0
+offset_right = 940.0
+offset_bottom = 524.0
+text = "to gallery"
+script = ExtResource("1_fxhd3")
+next_scene = "res://scenes/gallery.tscn"
+
+[node name="TabBar" type="TabBar" parent="."]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 3.0
+offset_right = 575.0
+offset_bottom = 43.0
+clip_tabs = false
+tab_count = 2
+tab_0/title = "Originals"
+tab_1/title = "Difference"
+
+[node name="ScoreLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 423.0
+offset_top = 504.0
+offset_right = 463.0
+offset_bottom = 527.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="tab_changed" from="TabBar" to="." method="_on_tab_bar_tab_changed"]

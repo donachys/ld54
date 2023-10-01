@@ -1,0 +1,32 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://bd8xh43twe2b8"]
+
+[ext_resource type="FontFile" uid="uid://dv4q1lokccr56" path="res://assets/fonts/SFPixelateShaded-Bold.ttf" id="1_a8igp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jx2ks"]
+bg_color = Color(0.46, 0.412467, 0.1748, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cd1vl"]
+bg_color = Color(0.403922, 0.266667, 0.196078, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.898039, 0.803922, 0.337255, 1)
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+shadow_size = 4
+
+[resource]
+default_font = ExtResource("1_a8igp")
+Button/colors/font_color = Color(0.568627, 0.988235, 0.545098, 1)
+Button/colors/font_hover_color = Color(0.51525, 0.9, 0.495, 1)
+Button/styles/hover = SubResource("StyleBoxFlat_jx2ks")
+Button/styles/normal = SubResource("StyleBoxFlat_cd1vl")
+Label/colors/font_color = Color(0.568627, 0.988235, 0.545098, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 1)
+LineEdit/colors/font_color = Color(0.176471, 0.768627, 0.145098, 1)
+TextEdit/colors/font_color = Color(0.196078, 0.658824, 0.235294, 1)
+TextEdit/font_sizes/font_size = 12

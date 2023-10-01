@@ -1,0 +1,140 @@
+[gd_scene load_steps=25 format=3 uid="uid://bgkau1yvhrq7c"]
+
+[ext_resource type="Texture2D" uid="uid://bopdevjlo0i58" path="res://assets/brick-normal-948x533.png" id="1_urqdq"]
+[ext_resource type="Script" path="res://scenes/scene_transition_btn.gd" id="1_ykxhh"]
+[ext_resource type="Script" path="res://scenes/test_layout.gd" id="3_86uxd"]
+[ext_resource type="Texture2D" uid="uid://bgan2pk8c0obt" path="res://assets/pointlight000.png" id="3_a7h6k"]
+[ext_resource type="Texture2D" uid="uid://cotxjfwe4dahf" path="res://assets/gallery-sign.png" id="3_rnlga"]
+[ext_resource type="PackedScene" uid="uid://cjp7jp2ngmbes" path="res://scenes/user_art_gallery_container.tscn" id="3_ymudj"]
+[ext_resource type="Texture2D" uid="uid://cld01bvio8abc" path="res://assets/premade/0000_48x72.png" id="4_n063q"]
+[ext_resource type="Texture2D" uid="uid://b2rjdlysct6so" path="res://assets/premade/0001_48x72.png" id="5_fqrbo"]
+[ext_resource type="Theme" uid="uid://bd8xh43twe2b8" path="res://assets/theme000.tres" id="6_74u58"]
+[ext_resource type="Texture2D" uid="uid://byjs6m0pnuekd" path="res://assets/premade/0002_48x72.png" id="6_ju8sa"]
+[ext_resource type="Texture2D" uid="uid://prps7cy5b141" path="res://assets/premade/0003_48x72.png" id="7_1ne3i"]
+[ext_resource type="Script" path="res://scenes/earnings_label.gd" id="7_53u1w"]
+[ext_resource type="Texture2D" uid="uid://bsjkwajij0m1a" path="res://assets/premade/0004_48x72.png" id="8_if4j6"]
+[ext_resource type="Texture2D" uid="uid://dndwwdlornjno" path="res://assets/premade/0005_48x72.png" id="9_sio2u"]
+[ext_resource type="Texture2D" uid="uid://o3njsjgptjc3" path="res://assets/premade/0006_48x72.png" id="10_vi54n"]
+[ext_resource type="Texture2D" uid="uid://pf8buee884pv" path="res://assets/premade/0007_48x72.png" id="11_1le76"]
+[ext_resource type="Texture2D" uid="uid://dvv8fj705ym64" path="res://assets/premade/0008_48x72.png" id="12_dsbmj"]
+[ext_resource type="Texture2D" uid="uid://ll87a0iy6tku" path="res://assets/premade/0009_48x72.png" id="13_yps0m"]
+[ext_resource type="Texture2D" uid="uid://c12sgahmmpuai" path="res://assets/premade/0010_48x72.png" id="14_uc3xj"]
+[ext_resource type="Texture2D" uid="uid://oudnegajree" path="res://assets/premade/0011_48x72.png" id="15_v6m57"]
+[ext_resource type="Texture2D" uid="uid://bd73km10sjo2y" path="res://assets/premade/0012_48x72.png" id="16_b00br"]
+[ext_resource type="Texture2D" uid="uid://cfsjx0nlu7yao" path="res://assets/premade/0013_48x72.png" id="17_s4iwb"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_fahv7"]
+normal_texture = ExtResource("1_urqdq")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_57cn1"]
+diffuse_texture = ExtResource("3_rnlga")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 948.0
+offset_bottom = 533.0
+texture = SubResource("CanvasTexture_fahv7")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(948, 533)
+layout_mode = 0
+offset_right = 948.0
+offset_bottom = 533.0
+color = Color(0.521569, 0.176471, 0.176471, 0.427451)
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 7.0
+offset_right = 900.0
+offset_bottom = 67.0
+texture = SubResource("CanvasTexture_57cn1")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = -12.0
+offset_top = 75.0
+offset_right = 944.0
+offset_bottom = 430.0
+columns = 6
+script = ExtResource("3_86uxd")
+pm_images = Array[CompressedTexture2D]([ExtResource("4_n063q"), ExtResource("5_fqrbo"), ExtResource("6_ju8sa"), ExtResource("7_1ne3i"), ExtResource("8_if4j6"), ExtResource("9_sio2u"), ExtResource("10_vi54n"), ExtResource("11_1le76"), ExtResource("12_dsbmj"), ExtResource("13_yps0m"), ExtResource("14_uc3xj"), ExtResource("15_v6m57"), ExtResource("16_b00br"), ExtResource("17_s4iwb")])
+
+[node name="MarginContainer" parent="GridContainer" instance=ExtResource("3_ymudj")]
+visible = false
+layout_mode = 2
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.384314, 0.384314, 0.384314, 1)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(0.376471, 0.376471, 0.376471, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(21, 290.5)
+texture = ExtResource("3_a7h6k")
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(349, 291.5)
+texture = ExtResource("3_a7h6k")
+
+[node name="PointLight2D3" type="PointLight2D" parent="."]
+position = Vector2(651, 290.5)
+texture = ExtResource("3_a7h6k")
+
+[node name="PointLight2D4" type="PointLight2D" parent="."]
+position = Vector2(931, 286.5)
+texture = ExtResource("3_a7h6k")
+
+[node name="PointLight2D5" type="PointLight2D" parent="."]
+position = Vector2(198, 34)
+rotation = -1.57246
+scale = Vector2(0.120001, 1)
+texture = ExtResource("3_a7h6k")
+
+[node name="PointLight2D6" type="PointLight2D" parent="."]
+position = Vector2(773, 37)
+rotation = 1.56718
+scale = Vector2(0.120001, 1)
+texture = ExtResource("3_a7h6k")
+
+[node name="EarningsLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 474.0
+offset_right = 295.0
+offset_bottom = 526.0
+theme = ExtResource("6_74u58")
+theme_override_font_sizes/font_size = 24
+text = "Total Earned: $0.00"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("7_53u1w")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 344.0
+offset_top = 490.0
+offset_right = 452.0
+offset_bottom = 521.0
+text = "Paint again"
+script = ExtResource("1_ykxhh")
+next_scene = "res://scenes/paint.tscn"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 481.0
+offset_top = 490.0
+offset_right = 583.0
+offset_bottom = 521.0
+text = "Main Menu"
+script = ExtResource("1_ykxhh")
+next_scene = "res://scenes/title.tscn"

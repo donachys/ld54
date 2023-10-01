@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://byl7ju6dcvc23"]
+
+[ext_resource type="Script" path="res://scenes/color_palette.gd" id="1_q2x8v"]
+
+[node name="ColorSelectRect" type="ColorRect"]
+custom_minimum_size = Vector2(32, 32)
+color = Color(0.168627, 0.168627, 0.168627, 1)
+script = ExtResource("1_q2x8v")
