@@ -108,22 +108,22 @@ texture = ExtResource("3_a7h6k")
 
 [node name="EarningsLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 7.0
-offset_top = 474.0
-offset_right = 295.0
-offset_bottom = 526.0
+offset_left = 15.0
+offset_top = 482.0
+offset_right = 318.0
+offset_bottom = 534.0
 theme = ExtResource("6_74u58")
 theme_override_font_sizes/font_size = 24
-text = "Total Earned: $0.00"
+text = "Total Earned: $123.23"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("7_53u1w")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 344.0
+offset_left = 452.0
 offset_top = 490.0
-offset_right = 452.0
+offset_right = 560.0
 offset_bottom = 521.0
 text = "Paint again"
 script = ExtResource("1_ykxhh")
@@ -131,10 +131,10 @@ next_scene = "res://scenes/paint.tscn"
 
 [node name="Button2" type="Button" parent="."]
 layout_mode = 0
-offset_left = 481.0
-offset_top = 490.0
-offset_right = 583.0
-offset_bottom = 521.0
+offset_left = 672.0
+offset_top = 488.0
+offset_right = 774.0
+offset_bottom = 519.0
 text = "Main Menu"
 script = ExtResource("1_ykxhh")
 next_scene = "res://scenes/title.tscn"

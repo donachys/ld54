@@ -40,14 +40,14 @@ var diff_update_freq := 1.0
 var since_last_score_update := 0.0
 var score_update_freq := 0.1
 
+var _cheat_enabled := false
+
 func _ready():
 	image = Image.create(canvas_size.x as int, canvas_size.y as int, false, Image.FORMAT_RGBA8)
 	image.fill(Color.WHITE)
 	texture = ImageTexture.create_from_image(image)
 
 	var fineart = global_vars.get_fineart()
-	# var fa_image = Image.load_from_file(fineart.path)
-	# fine_art_node.texture = ImageTexture.create_from_image(fa_image)
 	fine_art_node.texture = fa_images[fineart.index]
 
 	var tmp_csrect0 := color_select_rect.instantiate()
@@ -67,15 +67,40 @@ func _ready():
 	u_image_downsize.fill(Color.WHITE)
 	u_downsize.texture = ImageTexture.create_from_image(u_image_downsize)
 
+	fa_image_downsize = fine_art_node.texture.get_image().duplicate()
+	fa_image_downsize.resize(canvas_size.x/_scale as int, canvas_size.y/_scale as int, Image.INTERPOLATE_LANCZOS)
+	fa_downsize.texture = ImageTexture.create_from_image(fa_image_downsize)
+
+	_record_baseline()
+
 	u_image_downsize3 = Image.create(canvas_size.x/(_scale/4) as int, canvas_size.y/(_scale/4) as int, false, Image.FORMAT_RGBA8)
 	u_image_downsize3.fill(Color.WHITE)
 	u_downsize3.texture = ImageTexture.create_from_image(u_image_downsize3)
 
-	global_vars.last_fa_image = fine_art_node.texture.get_image().duplicate()
+	if(_cheat_enabled):
+		var fa_img: Image = fa_image_downsize.duplicate()
+		var u_img: Image = u_image_downsize.duplicate()
+		for i in range(0, fa_img.get_size().x):
+			for j in range(0, fa_img.get_size().y):
+				var best_so_far := {"score": _color_score(Color.WHITE, fa_img.get_pixel(i, j)), "color": Color.WHITE}
+				for k in range(0, fineart.palette.size()):
+					var test_color := Color.from_string(fineart.palette[k], "000000")
+					var test_score := _color_score(test_color, fa_img.get_pixel(i, j))
+					if(test_score < best_so_far["score"]):
+						best_so_far["score"] = test_score
+						best_so_far["color"] = test_color
+				u_img.set_pixel(i, j, best_so_far["color"])
+		u_image_downsize = u_img.duplicate()
+		var u_img3 := u_img.duplicate()
+		u_img3.resize(canvas_size.x/(_scale/4) as int, canvas_size.y/(_scale/4) as int, Image.INTERPOLATE_NEAREST)
+		u_image_downsize3 = u_img3
+		u_downsize3.texture = ImageTexture.create_from_image(u_image_downsize3)
+		u_img.resize(canvas_size.x as int, canvas_size.y as int, Image.INTERPOLATE_NEAREST)
+		image = u_img
+		texture = ImageTexture.create_from_image(image)
+		global_vars._add_user_art(null, u_image_downsize3)
 
-	fa_image_downsize = fine_art_node.texture.get_image().duplicate()
-	fa_image_downsize.resize(canvas_size.x/_scale as int, canvas_size.y/_scale as int, Image.INTERPOLATE_LANCZOS)
-	fa_downsize.texture = ImageTexture.create_from_image(fa_image_downsize)
+	global_vars.last_fa_image = fine_art_node.texture.get_image().duplicate()
 
 	global_vars.last_scaled_fa_image = fa_image_downsize.duplicate()
 
@@ -84,7 +109,9 @@ func _ready():
 	fa_downsize3.texture = ImageTexture.create_from_image(fa_image_downsize3)
 
 	check_score_btn.pressed.connect(self._check_score_btn_pressed)
-	_record_baseline()
+	global_vars.last_u_image = image.duplicate()
+
+
 
 func _process(delta):
 	since_last_diff_update += delta
@@ -93,9 +120,9 @@ func _process(delta):
 		var current_score = _current_score()
 		var score_format_string = "Your payout: $%*.*f"
 		# Pad to length of 4, round to 3 decimal places:
-		check_score_label.text = score_format_string % [5, 2, (1 - (current_score/baseline_score)) * painting_value]
+		check_score_label.text = score_format_string % [5, 2, clamp((1 - (current_score/baseline_score)), 0, 1) * painting_value]
 		since_last_score_update = 0.0
-		global_vars.current_score_string = score_format_string % [5, 2, (1 - (current_score/baseline_score)) * painting_value]
+		global_vars.current_score_string = score_format_string % [5, 2, clamp((1 - (current_score/baseline_score)), 0, 1) * painting_value]
 	if(since_last_diff_update >= diff_update_freq):
 		global_vars.last_ufa_diff_image = _diff_scaled_ufa_image().duplicate()
 		since_last_diff_update = 0.0
@@ -120,10 +147,7 @@ func _record_baseline():
 		for j in range(0, fa_img.get_size().y):
 			var fa_pxl := fa_img.get_pixel(i, j)
 			var u_pxl := u_img.get_pixel(i, j)
-			baseline_score += absf(fa_pxl.r-u_pxl.r)
-			baseline_score += absf(fa_pxl.g-u_pxl.g)
-			baseline_score += absf(fa_pxl.b-u_pxl.b)
-
+			baseline_score += _color_score(fa_pxl, u_pxl)
 
 func _check_score_btn_pressed():
 	var composite_img = _diff_ufa_image()
@@ -171,8 +195,11 @@ func _current_score()->float:
 		for j in range(0, fa_img.get_size().y):
 			var fa_pxl := fa_img.get_pixel(i, j)
 			var u_pxl := u_img.get_pixel(i, j)
-			current_score += (absf(fa_pxl.r-u_pxl.r) + absf(fa_pxl.g-u_pxl.g) + absf(fa_pxl.b-u_pxl.b))
+			current_score += _color_score(fa_pxl, u_pxl)
 	return current_score
+
+func _color_score(a: Color, b: Color) -> float:
+	return absf(a.r-b.r) + absf(a.g-b.g) + absf(a.b-b.b)
 
 func _gui_input(event):
 	if not time_expired:

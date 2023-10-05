@@ -300,9 +300,9 @@ func get_fineart():
 	return random_fineart
 
 var user_arts = []
-var _max_arts = 10
+var _max_arts = 20
 
 func _add_user_art(_fa_img: Image, _u_img: Image):
-	user_arts.append({"u_img": _u_img, "fa_img": _fa_img})
+	user_arts.push_front({"u_img": _u_img, "fa_img": _fa_img})
 	if(user_arts.size() > _max_arts):
-		user_arts.pop_front()
+		user_arts.pop_back()

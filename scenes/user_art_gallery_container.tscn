@@ -55,6 +55,7 @@ size_flags_vertical = 4
 texture = ExtResource("1_crss4")
 
 [node name="Price" type="Label" parent="ColorRect/Rect"]
+visible = false
 layout_mode = 0
 offset_left = 71.0
 offset_top = 83.0

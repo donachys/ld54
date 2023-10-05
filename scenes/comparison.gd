@@ -28,7 +28,7 @@ func _ready():
 	tmp_diff_image.resize(target_rect_size.x, target_rect_size.y, Image.INTERPOLATE_NEAREST)
 	diff_tex_rect.texture = ImageTexture.create_from_image(tmp_diff_image)
 
-	score_label.text = "Your Payout " + global_vars.current_score_string
+	score_label.text = global_vars.current_score_string
 
 
 func _on_tab_bar_tab_changed(tab: int):
